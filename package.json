@@ -1,0 +1,24 @@
+{
+  "name": "webpack-scaffold-starter",
+  "version": "1.0.0",
+  "description": "A CLI tool for scaffolding starter webpack-scaffold",
+  "main": "index.js",
+  "dependencies": {
+    "ansi-colors": "^3.2.4",
+    "inquirer": "^6.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabh3112/webpack-scaffold-starter.git"
+  },
+  "author": "Rishabh Chawla",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rishabh3112/webpack-scaffold-starter/issues"
+  },
+  "homepage": "https://github.com/rishabh3112/webpack-scaffold-starter#readme"
+}
