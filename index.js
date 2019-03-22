@@ -40,8 +40,8 @@ const QUESTIONS = [
 const resolveTemplate = (path) => resolve(TEMPLATE_DIRECTORY, path);
 const resolveUser = (path) => resolve(USER_DIRECTORY, path);
 const l = (message) => { console.log(message); };
-const info = (message) => { l(c.blueBright(i) + c.italic(` ${message}`)); }
-const done = () => {l.greenBright("\u2713 Done"); };
+const info = (message) => { l(c.bold("\n" + c.blue("i") + c.italic(` ${message}`))); }
+const done = () => {l(c.greenBright("\u2713 Done")); };
 
 function start() {
     l(
@@ -49,7 +49,6 @@ function start() {
         ${c.blueBright("webpack-scaffold-starter")}
         ------------------------
         Start your webpack scaffold on the go
-
 `
     )
 }
@@ -69,19 +68,19 @@ function scaffold(answers) {
     packageJSON.description = answers.description;
     packageJSON.author = answers.author;
 
-    let index = fs.readFileSync(resolveTemplate("./index.js"));
+    let index = fs.readFileSync(resolveTemplate("./index.js")).toString();
     index = index.replace(/<name>/g, answers.name);
-    index = index.replace(/<description>/, ansewers.description);
-    index = index.replace(/<description>/, ansewers.author);
+    index = index.replace(/<description>/, answers.description);
+    index = index.replace(/<author>/, answers.author);
 
-    fs.writeFileSync(resolveUser("./package.json"), packageJSON);
+    fs.writeFileSync(resolveUser("./package.json"), JSON.stringify(packageJSON, null, 2));
     fs.writeFileSync(resolveUser("./index.js"), index);
     done();
 }
 
 function install() {
     info("Installing Dependencies");
-    l(c.gray("  May take few minutes"));
+    l(c.gray("  May take few minutes..."));
     execSync(`cd ${USER_DIRECTORY} && npm install --quiet`);
     done();
 }
@@ -89,6 +88,6 @@ function install() {
 (async() => {
     start();
     const answers = await question();
-    scaffold();
+    scaffold(answers);
     install();
-});
+})();
