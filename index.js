@@ -65,7 +65,7 @@ async function question() {
 function scaffold(answers) {
     info("Scaffolding files ...");
     const packageJSON = require("./template/package.json");
-    packageJSON.name = answers.name;
+    packageJSON.name = `webpack-scaffold-${answers.name}`;
     packageJSON.description = answers.description;
     packageJSON.author = answers.author;
 
