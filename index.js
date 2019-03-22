@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const c = require("ansi-colors");
 const inquirer = require("inquirer");
 const { execSync } = require("child_process");

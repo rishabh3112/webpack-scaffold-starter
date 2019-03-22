@@ -8,8 +8,8 @@
     "inquirer": "^6.2.2"
   },
   "devDependencies": {},
-  "scripts": {
-  
+  "bin": {
+    "webpack-scaffold": "./index.js"
   },
   "repository": {
     "type": "git",
