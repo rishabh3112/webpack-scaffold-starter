@@ -5,6 +5,8 @@
 <h1 align="center">webpack-scaffold-starter</h1>
 
 <p align="center">
+  Kickstart creating your own webpack scaffold
+<br><br>
   <a href="https://www.npmjs.com/package/webpack-scaffold-starter">
     <img src="https://badge.fury.io/js/webpack-scaffold-starter.svg" alt="npm version" />
   </a>
@@ -12,7 +14,6 @@
     <img src="https://img.shields.io/npm/dt/webpack-scaffold-starter.svg" alt="npm downloads" />
   </a>
 </p>
-Kickstart creating your own webpack scaffold
 
 ## Installation
 ```bash
