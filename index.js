@@ -5,7 +5,7 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const { resolve } = require("path");
 
-const USER_DIRECTORY = process.cwd();
+const USER_DIRECTORY = process.env.PWD ? process.env.PWD : process.cwd();
 const TEMPLATE_DIRECTORY = resolve(__dirname, "template");
 const QUESTIONS = [
     {
