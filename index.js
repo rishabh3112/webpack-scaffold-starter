@@ -86,9 +86,27 @@ function install() {
     done();
 }
 
+function footer() {
+    l(
+`
+    Your scaffold in created!
+
+    - ${c.blue('Open ./index.js and start writing your scaffold')}
+    - ${c.blue(`Learn how to write scaffold:
+      https://webpack.js.org/contribute/writing-a-scaffold`)}
+    - ${c.blue('For any help:')}
+        * ${c.blue(`Create an issue:
+          https://github.com/webpack/webpack-cli`)}
+        * ${c.blue('Tweet us at @webpack')}
+
+`
+    )
+}
+
 (async() => {
     start();
     const answers = await question();
     scaffold(answers);
     install();
+    footer();
 })();
