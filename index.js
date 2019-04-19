@@ -5,11 +5,9 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const { resolve } = require("path");
 
-<<<<<<< HEAD
-const USER_DIRECTORY = process.cwd();
-=======
+
 const USER_DIRECTORY = process.env.PWD ? process.env.PWD : process.cwd();
->>>>>>> 78889a176932ab2c5dadfb2c1d3946cc813bfda5
+
 const TEMPLATE_DIRECTORY = resolve(__dirname, "template");
 const QUESTIONS = [
     {
@@ -112,8 +110,6 @@ function footer() {
     const answers = await question();
     scaffold(answers);
     install();
-<<<<<<< HEAD
-=======
     footer();
->>>>>>> 78889a176932ab2c5dadfb2c1d3946cc813bfda5
+
 })();
