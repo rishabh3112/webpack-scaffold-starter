@@ -71,11 +71,16 @@ function scaffold(answers) {
 
     let index = fs.readFileSync(resolveTemplate("./index.js")).toString();
     index = index.replace(/<name>/g, answers.name);
-    index = index.replace(/<description>/, answers.description);
-    index = index.replace(/<author>/, answers.author);
+    index = index.replace(/<description>/g, answers.description);
+    index = index.replace(/<author>/g, answers.author);
+
+    let readme = fs.readFileSync(resolveTemplate("./README.md")).toString();
+    readme = readme.replace(/<name>/g, answers.name);
+    readme = readme.replace(/<description>/g, answers.description);
 
     fs.writeFileSync(resolveUser("./package.json"), JSON.stringify(packageJSON, null, 2));
     fs.writeFileSync(resolveUser("./index.js"), index);
+    fs.writeFileSync(resolveUser("./README.md"), readme);
     done();
 }
 
@@ -98,7 +103,6 @@ function footer() {
         * ${c.blue(`Create an issue:
           https://github.com/webpack/webpack-cli`)}
         * ${c.blue('Tweet us at @webpack')}
-
 `
     )
 }
