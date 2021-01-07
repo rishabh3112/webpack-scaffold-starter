@@ -17,9 +17,10 @@ module.exports = class WebpackGenerator extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.dependences = ["webpack", "webpack-cli"];
-    opts.env.configuration = {
-        dev: {
-            topScope: ["// genrated using webpack-scaffold-<name>"],
+    this.configuration = {
+        config: {
+            configName: "config",
+            topScope: ["// generated using webpack-scaffold-<name>"],
             webpackOptions: {}
         }
     }
@@ -40,7 +41,7 @@ module.exports = class WebpackGenerator extends Generator {
                 done();
             } else {
                 console.log("Okay, Exiting...");
-                process.exit();
+                process.exit(0);
             }
         })
   }
@@ -49,7 +50,7 @@ module.exports = class WebpackGenerator extends Generator {
  * @description write files in user directory
  */
   writing() {
-    this.config.set('configuration', this.options.env.configuration);
+    this.config.set('configuration', this.configuration);
   }
 
   /**
@@ -58,6 +59,7 @@ module.exports = class WebpackGenerator extends Generator {
    */
   install() {
     const pkgManager = getPackageManager();
-    this.scheduleInstallTask(pkgManager, this.dependences);
+    const opts = pkgManager === 'yarn' ? { dev: true } : { 'save-dev': true };
+    this.scheduleInstallTask(pkgManager, this.dependences, opts);
   }
 };

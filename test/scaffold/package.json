@@ -2,5 +2,11 @@
   "name": "scaffold",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@webpack-cli/init": "^1.1.1",
+    "prettier": "^2.2.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  }
 }
